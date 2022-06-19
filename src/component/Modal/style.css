@@ -1,0 +1,14 @@
+.modal {
+    height: 500px;
+    width: 90%;
+    position: absolute;
+    background-color: rgba(245, 242, 242, 0.82);
+    left: 50px;
+    top: calc(40% - 250px);
+}
+
+@media screen and (max-width: 768px){
+    .modal {
+        left: 25px;
+    }
+}

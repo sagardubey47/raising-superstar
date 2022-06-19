@@ -1,0 +1,28 @@
+.navbar-container {
+    display: flex;
+}
+
+.logo-container {
+flex: 0.7;
+padding-left: 15%;
+}
+
+.email {
+    flex: 0.3;
+    text-align: center;
+    line-height: 5;
+    color: #fff;
+}
+
+.logo {
+  width: 80%;
+}
+
+@media screen and (max-width: 768px){
+    .logo-container {
+        flex: 1;
+    }
+    .email {
+        display: none;
+    }
+}

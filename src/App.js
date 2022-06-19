@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Hero from './component/Hero';
+import Modal from './component/Modal';
+import Navbar from './component/Navbar';
 
 function App() {
+
+  const [showComments, setShowComments] = useState(false);
+
+  const handleModalOpen = () => {
+    setShowComments(true)
+  }
+
+  const handleModalClose = () => {
+    setShowComments(false)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+     <Navbar />
+     <Hero handleModalOpen={handleModalOpen}/>
+     {
+      showComments && <Modal />
+     }
     </div>
   );
 }
