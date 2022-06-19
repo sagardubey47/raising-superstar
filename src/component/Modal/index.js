@@ -872,6 +872,26 @@ const Modal = ({handleModalClose}) => {
                                     {comment.post.content}
                                 </p>
                             </div>
+                           { 
+                           Array.isArray(comment.post.comments) && comment.post.comments?.length > 0 &&  
+                           <div className='reply'>
+                            {
+                               
+                                comment.post.comments?.map((item) => {
+                                    
+                                        return <div className='comment' key={item.id}>
+                                                    <img src={`${item.user.profile.picture}`} alt='avatar' className='avatar'/>
+                                                    <h4>{item.user.profile.name}</h4>
+                                                    <p className='timestamp'>{moment.utc(item.createdAt).format("D MMM, YYYY h:mm A")}</p>
+                                                    <p className='heading'>
+                                                        {item.body}
+                                                    </p>
+                                                </div>
+                                })
+                            }
+                               
+                            </div>
+                            }
                         </div>
             })
         }

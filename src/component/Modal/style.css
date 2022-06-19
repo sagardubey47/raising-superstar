@@ -42,13 +42,17 @@
 
 .comment {
     background-color: #eee;
-    padding: 3px;
+    padding: 6px 3px;
     margin: 10px 2px;
     position: relative;
     min-height: 70px;
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.51);
     -webkit-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.51);
     -moz-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.51);
+}
+
+.reply {
+    margin-left: 35px;
 }
 
 .avatar {
@@ -69,7 +73,7 @@
 .timestamp {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 6px;
 }
 
 .close-btn:hover {
@@ -81,7 +85,24 @@
         left: 25px;
     }
 
+    .comment {
+        padding-bottom: 40px;
+    }
+
+    .timestamp {
+        right: 9px;
+        bottom: 9px;
+        top: auto;
+    }
+
+    .avatar {
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+    }
+
     .heading {
-       padding: 10px 10px 10px 70px;
+       padding: 10px 10px 10px 40px;
+       font-size: 16px;
     }
 }
