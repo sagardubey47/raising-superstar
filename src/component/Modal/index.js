@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import moment from 'moment';
 import { CgClose } from 'react-icons/cg';
 import "./style.css"
 
 const Modal = ({handleModalClose}) => {
-    const [comments, setComments] = useState(null);
-    const [page, setPage] = useState(1);
+    // const [comments, setComments] = useState(null);
+    // const [page, setPage] = useState(1);
     const hardCodedComment = [
         {
           "_id": "628f6e91ccdcba64ca8f830a",
@@ -830,7 +831,7 @@ const Modal = ({handleModalClose}) => {
       ]
 
     const fetchData = () => {
-        let url = `/users/feed?limit=1&page=${page}`;
+        let url = `/users/feed?limit=1&page=${1}`;
 
         let result = fetch(url, {
             headers: {
@@ -839,10 +840,13 @@ const Modal = ({handleModalClose}) => {
           }).then((response) => response.json())
           .then((json) => {
             console.log(json);
-            setComments(json);
+            return json
+            // setComments(json);
           }).catch((err) => {
              console.log(err)
           });
+
+          return result
     }
 
     useEffect(() => {
@@ -857,10 +861,16 @@ const Modal = ({handleModalClose}) => {
         
         {
             hardCodedComment.map((comment) => {
-                return <div>
-                    <h1>{comment.post.content}
-                    </h1>
-                </div>
+                return <div key={comment.id} className>
+                            <div className='comment'>
+                                <img src={`${comment.post.user.profile.picture}`} alt='avatar' className='avatar'/>
+                                <h4>{comment.post.user.profile.name}</h4>
+                                <p className='timestamp'>{moment.utc(comment.post.publishedAt).format("D MMM, YYYY h:mm A")}</p>
+                                <p className='heading'>
+                                    {comment.post.content}
+                                </p>
+                            </div>
+                        </div>
             })
         }
     </div>
