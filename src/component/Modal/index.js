@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { CgClose } from 'react-icons/cg';
 import "./style.css"
 
-const Modal = () => {
+const Modal = ({handleModalClose}) => {
     const [comments, setComments] = useState(null);
     const [page, setPage] = useState(1);
     const hardCodedComment = [
@@ -850,6 +851,10 @@ const Modal = () => {
 
   return (
     <div className='modal'>
+        <div className='close-btn' onClick={handleModalClose}>
+        <CgClose size={28}/>
+        </div>
+        
         {
             hardCodedComment.map((comment) => {
                 return <div>

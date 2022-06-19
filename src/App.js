@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Hero from './component/Hero';
 import Modal from './component/Modal';
@@ -16,12 +16,22 @@ function App() {
     setShowComments(false)
   }
 
+  useEffect(() => {
+    
+
+    const body = document.querySelector("body");
+    body.style.position = showComments ? "fixed" : "absolute";
+    body.style.overflow = showComments ? "hidden" : "auto";
+  
+   
+  }, [showComments])
+  
   return (
     <div className="main-container">
      <Navbar />
      <Hero handleModalOpen={handleModalOpen}/>
      {
-      showComments && <Modal />
+      showComments && <Modal handleModalClose={handleModalClose}/>
      }
     </div>
   );
