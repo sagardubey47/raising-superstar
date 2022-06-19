@@ -855,11 +855,13 @@ const Modal = ({handleModalClose}) => {
 
   return (
     <div className='modal'>
-        <div className='close-btn' onClick={handleModalClose}>
-        <CgClose size={28}/>
+        <div className='close-btn-wrapper'>
+            <div className='close-btn' onClick={handleModalClose}>
+            <CgClose size={28}/>
+            </div>
         </div>
-        
-        {
+       <div className='comment-wrapper'>
+       {
             hardCodedComment.map((comment) => {
                 return <div key={comment.id} className>
                             <div className='comment'>
@@ -873,6 +875,7 @@ const Modal = ({handleModalClose}) => {
                         </div>
             })
         }
+       </div>
     </div>
   )
 }

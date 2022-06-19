@@ -4,13 +4,19 @@
     position: absolute;
     background-color: rgba(245, 242, 242, 0.82);
     left: 50px;
-    top: calc(40% - 250px);
+    top: calc(50% - 250px);
     padding: 0 15px;
+   
+}
+
+.close-btn-wrapper {
+    position: relative;
 }
 
 .close-btn {
-    position: relative;
+    position: absolute;
     top: -25px;
+    z-index: 1000;
     left: calc(50%);
     background-color: rgba(245, 242, 242, 0.82);
     width: 50px;
@@ -23,15 +29,26 @@
     
 }
 
+.comment-wrapper {
+    overflow: auto;
+    height: 500px;
+    padding-top: 20px;
+}
+
+.comment-wrapper::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
 .comment {
     background-color: #eee;
     padding: 3px;
     margin: 10px 2px;
     position: relative;
     min-height: 70px;
-    box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.51);
-    -webkit-box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.51);
-    -moz-box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.51);
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.51);
+    -moz-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.51);
 }
 
 .avatar {
@@ -62,5 +79,9 @@
 @media screen and (max-width: 768px){
     .modal {
         left: 25px;
+    }
+
+    .heading {
+       padding: 10px 10px 10px 70px;
     }
 }
