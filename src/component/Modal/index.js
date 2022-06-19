@@ -879,7 +879,7 @@ const Modal = ({handleModalClose}) => {
                                
                                 comment.post.comments?.map((item) => {
                                     
-                                        return <div className='comment' key={item.id}>
+                                        return <div className='comment alt-ui' key={item.id}>
                                                     <img src={`${item.user.profile.picture}`} alt='avatar' className='avatar'/>
                                                     <h4>{item.user.profile.name}</h4>
                                                     <p className='timestamp'>{moment.utc(item.createdAt).format("D MMM, YYYY h:mm A")}</p>
